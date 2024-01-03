@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/SlsaMaskTree/R2020a">
+  <slsa.mm.maskTree.MaskTree type="slsa.mm.maskTree.MaskTree" uuid="46f3bfd5-cecd-4e2a-acba-688aac6888d8">
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="c3de5b57-8f5e-4e70-aa53-1f075a2ad617">
+      <blockPath>BOOst_mppt/IGBT</blockPath>
+      <id>BOOst_mppt:10</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="dc750706-4d21-4105-83ca-09516fc97cd4">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ed55f9d1-7262-4e01-be41-258cd4c1f8f8">
+          <evaluate>true</evaluate>
+          <expression>0.001</expression>
+          <name>Ron</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a727af1c-4044-4ed4-90ad-c65d90969196">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>Lon</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="01ae7f07-3f00-43b3-b117-e9c6b3449028">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Vf</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="de7e0abf-eacc-4c5d-9ddf-cd559d564579">
+          <expression>1e-6</expression>
+          <name>Tf</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="13e51652-e30d-4fc7-b854-51f7a4163934">
+          <expression>2e-6</expression>
+          <name>Tt</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4b7cdd89-7e8f-443b-bf37-434ef845713a">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>IC</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="10617935-1fce-4bdc-9145-4f4c1f2b28eb">
+          <evaluate>true</evaluate>
+          <expression>1e5</expression>
+          <name>Rs</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="1b29ab6e-ab2c-4e84-b47f-5504e9e6c769">
+          <evaluate>true</evaluate>
+          <expression>inf</expression>
+          <name>Cs</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4e83301b-044b-41f6-aab9-c5a8a117fedb">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Measurements</name>
+        </dialogParameters>
+        <initializationCode>block = gcb;
+[WantBlockChoice,Ts,X,Y,Ron,Vf] = powericon(&apos;SwitchesInit&apos;,&apos;IGBT&apos;,block,Rs,Cs,Ron,Vf);
+powericon(&apos;SetInternalModels&apos;,&apos;set&apos;,block,WantBlockChoice);
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="2e136db1-4dbb-4a2c-aace-7bbf4533b7ca">
+      <blockPath>BOOst_mppt/Series RLC Branch1</blockPath>
+      <id>BOOst_mppt:11</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="98c0faee-1f76-445c-828c-81850eb44c5c">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a44a6480-338a-4f2e-a48a-b84d97b30550">
+          <expression>C</expression>
+          <name>BranchType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f34f022e-4c05-4b01-8f8c-e36415384528">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Resistance</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="3c929379-48d8-498a-8fde-20f9c77351f5">
+          <evaluate>true</evaluate>
+          <expression>L</expression>
+          <name>Inductance</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="d3d0db82-c801-4617-9509-863ef3205e18">
+            <name>L</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="98f2fa68-b1a6-4513-a066-fc2055c401f3">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>SetiL0</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="77bdd269-fdbd-463a-b2f6-20db6714dc79">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>InitialCurrent</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5f7d1c0f-4a07-4f76-aaf5-8fd2aa6a13c6">
+          <evaluate>true</evaluate>
+          <expression>C</expression>
+          <name>Capacitance</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="82696b7c-0c29-44d9-91f2-20efaa2a7b30">
+            <name>C</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="dc1eb50d-fc84-4c58-8f33-787cc2d841d7">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>Setx0</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e7043c99-5999-41de-a720-1be0870760ef">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>InitialVoltage</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="3d4a34c2-5b9c-421b-83d4-da3db753b1c9">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Measurements</name>
+        </dialogParameters>
+        <initializationCode>[s1,s2,s3,s4,r1,r2,l1,l2,c1,c2,c3,c4] = powericon(&apos;Series RLC Branch&apos;,Resistance,Inductance,Capacitance,BranchType);
+powericon(&apos;RLCCback&apos;,gcb)
+power_initmask();</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="35db1135-0220-41cb-be30-ca21a2fd919c">
+      <blockPath>BOOst_mppt/Series RLC Branch2</blockPath>
+      <id>BOOst_mppt:12</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="7459db59-a266-4a46-9c43-35cbed709962">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="707c5c16-816c-412d-bad0-95d52767d4bb">
+          <expression>R</expression>
+          <name>BranchType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ed5a6a31-446a-45c1-83c1-d8efaf59f7a8">
+          <evaluate>true</evaluate>
+          <expression>R</expression>
+          <name>Resistance</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="f5b8b895-5f6d-4f11-80c4-c7bd9c238094">
+            <name>R</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2e315161-d7bd-4473-8872-35a398221c0d">
+          <evaluate>true</evaluate>
+          <expression>L</expression>
+          <name>Inductance</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="e7cee312-b346-4424-9978-ee3ffd13821c">
+            <name>L</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="cd534543-a3af-4160-b5b7-152d87701d10">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>SetiL0</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2a3a7cb5-287c-45ac-9141-1004bca9f960">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>InitialCurrent</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f22d5e0b-1fd0-4754-a883-8274d1d4045f">
+          <evaluate>true</evaluate>
+          <expression>C</expression>
+          <name>Capacitance</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="8a40c82f-975c-4331-931e-0c28cfec9979">
+            <name>C</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c9a41835-0f34-4b79-b8a3-7ad7ba9c7bb4">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>Setx0</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="25d2aa92-4415-4528-81bf-99409a7077ef">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>InitialVoltage</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f8f58539-8f3f-4993-b54c-07618e873471">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Measurements</name>
+        </dialogParameters>
+        <initializationCode>[s1,s2,s3,s4,r1,r2,l1,l2,c1,c2,c3,c4] = powericon(&apos;Series RLC Branch&apos;,Resistance,Inductance,Capacitance,BranchType);
+powericon(&apos;RLCCback&apos;,gcb)
+power_initmask();</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="b35280e4-08cc-4bc3-9273-59bd9b42128b">
+      <blockPath>BOOst_mppt/powergui</blockPath>
+      <childrenIds>BOOst_mppt:3:928</childrenIds>
+      <id>BOOst_mppt:3</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="0cbb299b-83cf-4638-893a-7dac6fab8cb5">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="9f019484-15b7-48e2-90e2-a72d811480c3">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>SimulationMode</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="552aee26-1ba0-43fd-81a5-033a721db126">
+          <evaluate>true</evaluate>
+          <expression>50e-6</expression>
+          <isTunable>true</isTunable>
+          <name>SampleTime</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="56eed5d0-d6a1-40ed-8fa0-4692f34c4163">
+          <evaluate>true</evaluate>
+          <expression>60</expression>
+          <isTunable>true</isTunable>
+          <name>frequency</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="619c980d-afc8-4739-a48c-715c4994a5b2">
+          <evaluate>true</evaluate>
+          <expression>50</expression>
+          <isTunable>true</isTunable>
+          <name>Iterations</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="943c2540-7e7f-43fb-b317-d6058c63abfb">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>frequencyindice</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ea4ad6a9-9155-49b9-ae99-5d61d2d445c2">
+          <evaluate>true</evaluate>
+          <expression>100e6</expression>
+          <isTunable>true</isTunable>
+          <name>Pbase</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="6b8ae19b-6cb5-4170-b389-ef3d6de6df7a">
+          <evaluate>true</evaluate>
+          <expression>1e-4</expression>
+          <isTunable>true</isTunable>
+          <name>ErrMax</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5563d3ee-801e-42f7-8f12-1ccc41416973">
+          <expression>kV</expression>
+          <isTunable>true</isTunable>
+          <name>UnitsV</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="dd1c0ece-e3ab-4526-8aea-ead2ce988f7d">
+          <expression>MW</expression>
+          <isTunable>true</isTunable>
+          <name>UnitsW</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="cd185cea-2eb5-4bfd-878d-3cf8027c30d5">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>buscounter</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="486d530b-2bfd-4fbb-93ab-b8ff07f5f5c2">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>FunctionMessages</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="60a41df1-940d-47fd-b094-6d227f2e138c">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>echomessages</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5e354d0c-9144-4471-9fac-d0a8c2fb8091">
+          <expression>off</expression>
+          <isTunable>true</isTunable>
+          <name>EnableUseOfTLC</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="92ed7078-cc1f-412b-9a33-4ecd06386e5c">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>CurrentSourceSwitches</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2e792e57-8a4c-4452-94b6-4251d8c098a3">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>DisableSnubberDevices</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="fea0a937-1120-4972-8411-b160054f1cb7">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>DisableRonSwitches</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="bdc5ab8e-3d2a-4b6c-a88c-e3cd3bd84991">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>DisableVfSwitches</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ae423b43-e8e1-45e8-8911-fb0db546e32a">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>DisplayEquations</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f3a431f3-ad02-415d-8404-5f8182e43070">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>AutomaticDiscreteSolvers</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="24da3a16-841c-42fa-b2b3-a920d2c15d8e">
+          <expression>Tustin/Backward Euler (TBE)</expression>
+          <isTunable>true</isTunable>
+          <name>SolverType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="d15a1ce7-bea6-4424-b73b-0062994e1b68">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>Interpol</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e71ebe50-8a1c-409f-b609-30b4101fa0f1">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>ExternalGateDelay</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f95d9eae-fdb1-470e-a3ba-74569f727079">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>methode</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2936c1b0-c727-4845-872c-de6a93e60841">
+          <evaluate>true</evaluate>
+          <expression>100</expression>
+          <isTunable>true</isTunable>
+          <name>Ts</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c9d34f84-a232-435d-8171-f383acb05bc3">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>x0status</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b50a9443-e0ab-46b1-af50-d475da048d8f">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>SPID</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="54391c84-e571-4392-bdbb-042580c180b9">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>SwTol</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a2ef83be-889c-4bda-a1cc-385604353ddf">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>HookPort</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="6762e56a-8bcb-4504-b709-8fca669ec2db">
+          <evaluate>true</evaluate>
+          <expression>1e-4</expression>
+          <isTunable>true</isTunable>
+          <name>NonlinearTolerance</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2bc4633d-f0bb-443a-842c-7d78f01421f2">
+          <evaluate>true</evaluate>
+          <expression>100</expression>
+          <isTunable>true</isTunable>
+          <name>nMaxIteration</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="57471c0a-3080-4f96-875f-bd5fb7fca6cd">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>ContinueOnMaxIteration</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="80c0578a-5104-4d30-9117-ca03dfad606b">
+          <expression>warning</expression>
+          <isTunable>true</isTunable>
+          <name>RestoreLinks</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="9d4314d1-8cac-44f4-bf2c-8be9b803c695">
+          <expression>off</expression>
+          <isTunable>true</isTunable>
+          <name>ResistiveCurrentMeasurement</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="d626339a-4bcf-49d9-83c8-465f48076f61">
+          <evaluate>true</evaluate>
+          <expression>[0:2:500]</expression>
+          <isTunable>true</isTunable>
+          <name>Frange</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="bdb0fe8a-683e-4328-a5d3-3bda530707ce">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>Ylog</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e15e670a-39b9-4182-a9e3-43c2b5d7da8f">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>Xlog</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="13205a42-d0d9-4ddd-9f58-c2607e55083c">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>ShowGrid</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8098d8a5-1690-40d9-b786-edc61f57192f">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>save</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="71ba08b6-3282-4952-bd22-4f13a38022b4">
+          <expression>ZData</expression>
+          <isTunable>true</isTunable>
+          <name>variable</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="cd4b0d29-4e5e-42a4-9b40-f93252fcf157">
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>structure</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c5ff72cc-c5e1-47b1-8177-2826b549c43c">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>ZoomFFT</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4660d2ac-3517-413b-83fb-2ede2ace8541">
+          <evaluate>true</evaluate>
+          <expression>0.0</expression>
+          <isTunable>true</isTunable>
+          <name>StartTime</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="75a9995a-bd52-411e-90f7-f3fe766c212e">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>cycles</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5c9588d6-ce9a-4834-9099-c42c32756541">
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>DisplayStyle</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a8b72979-86a0-43ce-a769-0ab338b0d8a9">
+          <evaluate>true</evaluate>
+          <expression>60</expression>
+          <isTunable>true</isTunable>
+          <name>fundamental</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="50ed4a68-c61b-452b-bda2-95c167d6d658">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>FreqAxis</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8184d37b-e9e2-4fda-95e6-6ee12a925a3e">
+          <evaluate>true</evaluate>
+          <expression>1000</expression>
+          <isTunable>true</isTunable>
+          <name>MaxFrequency</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="1cea2aff-6023-4210-88b2-753edb8236b6">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>frequencyindicesteady</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="70639b11-8b1e-4b0a-8992-ed0a034d24e4">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>RmsSteady</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="d7d32b51-8301-4ca6-8ea1-71a557210837">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>display</name>
+        </dialogParameters>
+        <initializationCode>dispMessage = powergui(&apos;MaskInitialization&apos;,gcb,SimulationMode,SampleTime);</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="f3a81af0-19ad-4872-82d9-31a54a4b8ce5">
+      <blockPath>BOOst_mppt/powergui/EquivalentModel1</blockPath>
+      <id>BOOst_mppt:3:928</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="a57ea01f-34c5-4afe-93c0-0ac2812f73bc">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="2a4b0573-4578-4f16-9ea5-4459ab48eeea">
+          <name>S</name>
+          <value>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BAAAAAAAAAAFAAAACAAAAAEAAAACAAAAAQAAAAAAAAAQAAIATVcAAA4AAAAwAAAABgAAAAgAAAAEAAAAAAAAAAUAAAAIAAAAAAAAAAAAAAABAAAAAAAAABAAAAAAAAAADgAAADAAAAAGAAAACAAAAAkCAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAAAAAAAgABAAAAAAAOAAAAMAAAAAYAAAAIAAAACQIAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAACAAEAAAAAAA4AAAAwAAAABgAAAAgAAAAJAgAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAAIAAQABAAAADgAAADAAAAAGAAAACAAAAAkCAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAAAAAAAgABAAAAAAAOAAAAMAAAAAYAAAAIAAAACQIAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAACAAEAAAAAAA4AAAAwAAAABgAAAAgAAAAJAgAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAAIAAQAAAAAADgAAADgAAAAGAAAACAAAAAYAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAAAAAACQAAAAgAAAAAAAAAAAAAAA4AAAA4AAAABgAAAAgAAAAGAAAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAAkAAAAIAAAAAAAAAAAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAFlADgAAAFAAAAAGAAAACAAAAAQAAAAAAAAABQAAAAgAAAABAAAAGwAAAAEAAAAAAAAAEAAAABsAAABUdXN0aW4vQmFja3dhcmQgRXVsZXIgKFRCRSkAAAAAAA4AAAA4AAAABgAAAAgAAAAGAAAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAAkAAAAIAAAAAAAAAAAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAAAADgAAADgAAAAGAAAACAAAAAYAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAAAAAACQAAAAgAAAAAAAAA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</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="97779fc5-aeaa-4ddb-8bc2-3481f6815951">
+          <evaluate>true</evaluate>
+          <expression>SwTol</expression>
+          <isTunable>true</isTunable>
+          <name>SwTol</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="59d8508e-7752-426c-9255-6657a0e1ade0">
+            <name>SwTol</name>
+            <value></value>
+            <workspace>BOOst_mppt:3</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <initializationCode>S  = GetDataForEquivalentModel(&apos;SPID&apos;,gcbh,SwTol);</initializationCode>
+      </masks>
+      <parentId>BOOst_mppt:3</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="3d79a52f-c03b-4b17-9a0d-709fce99db0c">
+      <blockPath>BOOst_mppt/Voltage Measurement</blockPath>
+      <id>BOOst_mppt:4</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="1c392a9d-4555-4bab-8981-014ef3dc3e47">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="419ecba7-b463-4694-a515-a95c240955e2">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>PhasorSimulation</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="22f1fa93-d7c9-4a88-ad2e-fe82b6b776ce">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>OutputType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="576b4e8a-a69a-4595-a03d-8323247ad92f">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>PSBequivalent</name>
+        </dialogParameters>
+        <initializationCode>block = gcb;
+powericon(&apos;psbloadfunction&apos;,block,&apos;Measurement Block&apos;,&apos;Initialize&apos;);
+WantBlockChoice = powericon(&apos;MeasurementBlockInit&apos;,block);
+powericon(&apos;SetInternalModels&apos;,&apos;set&apos;,block,WantBlockChoice);
+power_initmask();</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="8634b573-6854-4bea-ab5f-cbdaf1493928">
+      <blockPath>BOOst_mppt/Diode</blockPath>
+      <id>BOOst_mppt:5</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="2f7d4545-af57-4b62-b566-1c0307899d52">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="82325b5f-0efc-4c27-b686-acf0868863a2">
+          <evaluate>true</evaluate>
+          <expression>0.001 </expression>
+          <name>Ron</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a4abb509-f6dd-4009-bb80-623a2a35a78c">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>Lon</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="d1d81e22-6247-4589-b83e-0a3fdcfdb06d">
+          <evaluate>true</evaluate>
+          <expression>0.8</expression>
+          <name>Vf</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="3378034f-d2e1-4c2b-93d2-53af49aeb5fc">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>IC</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="6f911c21-623d-42ed-8cbc-4d439179df05">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>UseSnubber</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="74e2cc0a-7433-4fb3-b19b-52bbe390f707">
+          <evaluate>true</evaluate>
+          <expression>500</expression>
+          <name>Rs</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="96b03624-a54e-4172-a4c3-55db05de5640">
+          <evaluate>true</evaluate>
+          <expression>250e-9</expression>
+          <name>Cs</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a5a7d3b8-231d-4f3a-bdc5-19fba24b3fa9">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Measurements</name>
+        </dialogParameters>
+        <initializationCode>block = gcb;
+[WantBlockChoice,Ts,X,Y,Ron,Vf] = powericon(&apos;SwitchesInit&apos;,&apos;Diode&apos;,block,Rs,Cs,Ron,Vf);
+powericon(&apos;SetInternalModels&apos;,&apos;set&apos;,block,WantBlockChoice);
+
+
+
+
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="6e9fc4b7-71d0-4eca-9493-7b5c51ed0320">
+      <blockPath>BOOst_mppt/PWM Generator (DC-DC)</blockPath>
+      <childrenIds>BOOst_mppt:59:3</childrenIds>
+      <childrenIds>BOOst_mppt:59:8</childrenIds>
+      <id>BOOst_mppt:59</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="93ea2672-1ce1-4772-b64e-f922b35f9ac3">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f8a06ea6-415b-4d2f-8988-d9164046358e">
+          <evaluate>true</evaluate>
+          <expression>100e3</expression>
+          <isTunable>true</isTunable>
+          <name>Fsw</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f8f5e281-e378-4fc4-92a9-0513dd1b8a8a">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>Ts</name>
+        </dialogParameters>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="6dbede48-0129-4b62-9c4d-93221fbea2d0">
+      <blockPath>BOOst_mppt/PWM Generator (DC-DC)/Compare To Zero</blockPath>
+      <id>BOOst_mppt:59:3</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="8522c6ed-cc3d-4f5c-8f5f-5e7bda05aa02">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="38875982-d5f0-4e1d-b603-e8e371f919f6">
+          <expression>~=</expression>
+          <name>relop</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="cdf514df-4a0d-482a-b17b-4bbd4333ad28">
+          <expression>boolean</expression>
+          <name>OutDataTypeStr</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="61cf2915-7679-4f7e-b557-1b6e87bf65e8">
+          <expression>on</expression>
+          <name>ZeroCross</name>
+        </dialogParameters>
+        <initializationCode>blkName = gcb;
+
+if strcmp(get_param(gcbh,&apos;OutDataTypeStr&apos;),&apos;boolean&apos;)
+	setValue = &apos;boolean&apos;;
+else
+    setValue = &apos;fixdt(0, 8, 0)&apos;;
+end
+
+set_param([blkName,&apos;/Compare&apos;],&apos;relop&apos;,relop, ...
+	&apos;OutDataTypeStr&apos;, setValue, &apos;ZeroCross&apos;, ZeroCross);</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>BOOst_mppt:59</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="1071b14c-419b-47dc-b176-396b6506624b">
+      <blockPath>BOOst_mppt/PWM Generator (DC-DC)/Sawtooth Generator</blockPath>
+      <id>BOOst_mppt:59:8</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="950fcce5-1daa-4310-8f64-421f79b0a76f">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="b03750a2-4614-4c89-b068-a20d59fe6a4b">
+          <name>sps</name>
+          <value>AAFJTQAAAAAOAAAAaAIAAAYAAAAIAAAAAgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAFAAQACgAAAAEAAABGAAAAdGltZQAAAAAAAE91dAAAAAAAAABwaGFzZQAAAAAAUGVyaW9kAAAAAEZyZXEAAAAAAABEZWxheQAAAAAAVGltZVN0ZXBaAAAADgAAAEgAAAAGAAAACAAAAAYAAAAAAAAABQAAAAgAAAABAAAAAwAAAAEAAAAAAAAACQAAABgAAAAAAAAAAAAAAAV8c8qn+OQ+8WjjiLX45D4OAAAASAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAADAAAAAQAAAAAAAAAJAAAAGAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAA4AAAA4AAAABgAAAAgAAAAGAAAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAAkAAAAIAAAAAAAAAAAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAPFo44i1+OQ+DgAAADgAAAAGAAAACAAAAAYAAAAAAAAABQAAAAgAAAABAAAAAQAAAAEAAAAAAAAACQAAAAgAAAAAAAAAAGr4QA4AAAA4AAAABgAAAAgAAAAGAAAAAAAAAAUAAAAIAAAAAQAAAAEAAAABAAAAAAAAAAkAAAAIAAAAAAAAAAAAAAAOAAAAQAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAACAAAAAQAAAAAAAAAJAAAAEAAAAPFo44i1+NQ+AAAAAAAAAAA=</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="91fa343d-ed2e-4fc8-8416-b891e1ce9a44">
+          <evaluate>true</evaluate>
+          <expression>Fsw</expression>
+          <isTunable>true</isTunable>
+          <name>Freq</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="3b6c1dba-421d-43ec-9b0b-1499c0c75459">
+            <name>Fsw</name>
+            <value></value>
+            <workspace>BOOst_mppt:59</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c30423f8-dafb-4eb7-a308-73cdf007840b">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>Phase</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a841629a-0d81-4e89-b312-b3c868a29e6c">
+          <evaluate>true</evaluate>
+          <expression>Ts</expression>
+          <isTunable>true</isTunable>
+          <name>Ts</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="fb269108-d7f0-450a-bb83-eb1c21d9c17e">
+            <name>Ts</name>
+            <value></value>
+            <workspace>BOOst_mppt:59</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <initializationCode>block = gcb;
+[WantBlockChoice,Ts,sps] = powericon(&apos;SawtoothGeneratorInit&apos;,block,Phase,Freq,Ts);
+powericon(&apos;SetInternalModels&apos;,&apos;set&apos;,block,WantBlockChoice);</initializationCode>
+      </masks>
+      <parentId>BOOst_mppt:59</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="c8d8d330-e3c8-4aa8-9bfa-07ed96cefc2f">
+      <blockPath>BOOst_mppt/Series RLC Branch</blockPath>
+      <id>BOOst_mppt:7</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="1c6dd12b-7ffa-42a8-82c6-d940a60c8afd">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="bb923018-4ffe-4325-bf5d-5d71ea53d5df">
+          <expression>L</expression>
+          <name>BranchType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="735ff4d7-c972-43ad-8b8e-69bb9dbebb69">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Resistance</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b125caa8-4c05-4414-b8aa-3c78c7803e96">
+          <evaluate>true</evaluate>
+          <expression>L</expression>
+          <name>Inductance</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="098cf7dd-0e63-45ea-9689-26d40f14850b">
+            <name>L</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ff6e51f5-cb9b-4347-b00f-05db5c578345">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>SetiL0</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="d8b7058f-f7b3-457a-96d0-288c8b434f29">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>InitialCurrent</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c3fe0972-f51d-45f3-b72a-338d9292d02b">
+          <evaluate>true</evaluate>
+          <expression>1e-6</expression>
+          <name>Capacitance</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e0a3ea27-6eec-40ce-bf63-3b6af5fdd966">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>Setx0</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c0fedcb9-621b-46e1-8871-3afceab71d67">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>InitialVoltage</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8fd81eba-5fea-493f-a32a-d94c119b0f68">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Measurements</name>
+        </dialogParameters>
+        <initializationCode>[s1,s2,s3,s4,r1,r2,l1,l2,c1,c2,c3,c4] = powericon(&apos;Series RLC Branch&apos;,Resistance,Inductance,Capacitance,BranchType);
+powericon(&apos;RLCCback&apos;,gcb)
+power_initmask();</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="9302ec9f-72fc-4d5d-95a5-ecd73fa3d92d">
+      <blockPath>BOOst_mppt/Controlled Voltage Source</blockPath>
+      <id>BOOst_mppt:9</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="d78b3bd3-7e46-479b-a4d5-7f76fac2c9c5">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="67a89d46-faab-4a7e-ab4d-4b35d1fb8fa3">
+          <expression>on</expression>
+          <name>Initialize</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="7e3b86c9-c8da-4231-b15f-504bde8f6056">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>Source_Type</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="651c64c9-9089-4010-9ce9-b6cc88c87f09">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>Amplitude</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="970be33c-0a89-4387-83a2-37fb3e027161">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>Phase</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c0af3a07-1207-4fbb-9701-a39bfbbe74af">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>Frequency</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4744d24a-49f7-42a3-b85e-84fc6ec093f9">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Measurements</name>
+        </dialogParameters>
+        <initializationCode>powericon(&apos;psbloadfunction&apos;,gcb,&apos;goto&apos;,&apos;Initialize&apos;);
+powericon(&apos;ControlledSourcesCback&apos;,gcb);
+power_initmask();</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="c4e383b9-5ce5-4cdc-82b6-c567c05224af">
+      <childrenIds>BOOst_mppt:10</childrenIds>
+      <childrenIds>BOOst_mppt:11</childrenIds>
+      <childrenIds>BOOst_mppt:12</childrenIds>
+      <childrenIds>BOOst_mppt:3</childrenIds>
+      <childrenIds>BOOst_mppt:4</childrenIds>
+      <childrenIds>BOOst_mppt:5</childrenIds>
+      <childrenIds>BOOst_mppt:59</childrenIds>
+      <childrenIds>BOOst_mppt:7</childrenIds>
+      <childrenIds>BOOst_mppt:9</childrenIds>
+      <id>root</id>
+    </maskedBlocks>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="7ba4c609-d380-4392-a54d-19f6726c253e">
+      <name>C</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAJLLf0i/fU0/</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="6f39c6bb-e205-4c1f-8f8b-da283e08a2a1">
+      <name>L</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAC9uowG8BVI/</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="714e7cb4-5c2a-4ec6-b1d9-184ff58a14d6">
+      <name>R</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAwGJA</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <flags type="slsa.mm.maskTree.MaskTreeFlags" uuid="2ae066c5-39c2-41fb-b388-c84513fb96ee"/>
+  </slsa.mm.maskTree.MaskTree>
+</MF0>

@@ -1,0 +1,6 @@
+The argument '-tgtconn_server_info_file' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument 'C:\Users\jeffr\AppData\Local\Temp\tgtconnp1983dac4_05ab_467f_abb6_17b560686608.info' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument '-tgtconn_port' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument '0' passed to rtiostream_tcpip is not valid and will be ignored.
+Warning: Solver is encountering difficulty in simulating model 'BOOst_mppt' at time 7.9999194549340536e-06 . It will continue to simulate with warnings. Check the model for errors.
+Warning: During the simulation time step from 5.0000000000000004e-06 to 1.0000000000000001e-05 (step size = 5.0000000000000004e-06), found #1 masked zero crossings, i.e., signal(s) with an even number of zero crossings. The search algorithm only detected these zero crossings because of the presence of other zero crossings in this time step. Masked zero crossings are caused by one or more zero crossing signals that have an even number of zero crossings in the current time step. Masked zero crossings may not be detected in all cases.

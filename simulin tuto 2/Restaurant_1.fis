@@ -1,0 +1,48 @@
+[System]
+Name='Restaurant_1'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='SERVICE'
+Range=[0 10]
+NumMFs=3
+MF1='POOR':'sigmf',[3 2]
+MF2='AVERAGE':'sigmf',[3.025 4.545]
+MF3='EXCELLENT':'sigmf',[2.2 7.273]
+
+[Input2]
+Name='FOOD'
+Range=[0 20]
+NumMFs=3
+MF1='GOOD_FOOD':'sigmf',[1.17 10.3150105708245]
+MF2='DELICIOUS':'sigmf',[1.32 15.8228329809725]
+MF3='BAD_FOOD':'sigmf',[1.61 4.69849894291755]
+
+[Output1]
+Name='TIP'
+Range=[0 100]
+NumMFs=4
+MF1='No_Tip':'trimf',[6.13066173361521 7.50966173361521 8.12966173361522]
+MF2='Small_tip':'sigmf',[0.25 20]
+MF3='Medium_Tip':'sigmf',[0.25 50]
+MF4='Generous':'sigmf',[0.35 80]
+
+[Rules]
+1 3, 1 (1) : 2
+1 2, 2 (1) : 2
+1 1, 1 (1) : 2
+2 3, 2 (1) : 2
+2 1, 3 (1) : 2
+2 2, 3 (1) : 2
+3 3, 2 (1) : 2
+3 1, 3 (1) : 2
+3 2, 4 (1) : 2
